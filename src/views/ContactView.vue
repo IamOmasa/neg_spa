@@ -32,7 +32,7 @@
               <div class="icon-circle">✉️</div>
               <div class="info-text">
                 <h3>Support Email</h3>
-                <p>info@neg-agritechnologies.com</p>
+                <p>info@neg-agritech.com</p>
               </div>
             </div>
           </div>

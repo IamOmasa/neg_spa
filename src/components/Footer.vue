@@ -17,8 +17,8 @@
           </p>
           <p class="footer-text">
             <strong>Email:</strong> 
-            <a href="mailto:jamesreg3737@gmail.com" class="text-white text-decoration-none footer-link">
-              jamesreg3737@gmail.com
+            <a href="mailto:info@neg-agritech.com" class="text-white text-decoration-none footer-link">
+              info@neg-agritech.com
             </a>
           </p>
         </div>
