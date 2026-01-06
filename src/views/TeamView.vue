@@ -1,3 +1,4 @@
+
 <template>
   <main class="full-screen-container">
     <div class="content-limiter">
@@ -28,49 +29,49 @@ const team = [
   { 
     name: "James Kabati", 
     role: "CEO, Innovation and IoT",
-    image: "/src/assets/images/team/james.jpg", 
+    image: "/team/james.jpg", 
     socials: { linkedin: "https://www.linkedin.com/in/james-kabati-a65b32111/" }
   },
   { 
     name: "Omary Ally", 
     role: "CTO",
-    image: "/src/assets/images/team/omary.jpg",
+    image: "/team/omary.jpg",
     socials: { linkedin: "#" }
   },
   { 
     name: "James Gates", 
     role: "Busines Development Manager",
-    image: "/src/assets/images/team/jamesgates.jpg",
+    image: "/team/jamesgates.jpg",
     socials: { linkedin: "#" }
   },
   { 
     name: "Fanuel Darema", 
     role: "Engineering and GIS Manager",
-    image: "/src/assets/images/team/darema.jpg",
+    image: "/team/darema.jpg",
     socials: { linkedin: "#" }
   },
   { 
     name: "Salimu Goliama", 
     role: "Production Manager",
-    image: "/src/assets/images/team/salim.jpg",
+    image: "/team/salim.jpg",
     socials: { linkedin: "#" }
   },
    { 
     name: "Rose Ng'atigwa", 
     role: "Marketing and Communications Manager",
-    image: "/src/assets/images/team/Rose-Ng'atingwa.jpg",
+    image: "/team/rose-ngatingwa.jpg",
     socials: { linkedin: "#" }
   },
   { 
     name: "Dr. Alcardo Alex Barakabitze", 
     role: "Head of Research & Development",
-    image: "/src/assets/images/team/alcado.jpg",
+    image: "/team/alcado.jpg",
     socials: { linkedin: "https://www.linkedin.com/in/alcardo-alex-barakabitze-phd-43555246/" }
   },
   { 
     name: "Kadeghe Fue", 
     role: "Digital Agriculture Consultant",
-    image: "/src/assets/images/team/kadeghe.jpg",
+    image: "/team/kadeghe.jpg",
     socials: { linkedin: "#" }
   }
   

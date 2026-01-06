@@ -69,7 +69,7 @@
 /* Hero Styles */
 .hero-section {
   background: linear-gradient(rgba(45, 90, 39, 0.9), rgba(45, 90, 39, 0.9)), 
-              url('/src/assets/farm-bg.jpg') center/cover;
+              url('/farm-bg.jpg') center/cover;
   color: white;
   text-align: center;
 }
