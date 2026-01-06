@@ -3,7 +3,7 @@
     <header class="hero" :style="{ backgroundImage: `url(${post.image})` }">
       <div class="hero-overlay">
         <div class="limiter">
-          <button @click="$router.push('/blog')" class="back-link">← Back to Insights</button>
+          <button @click="$router.push('/blog')" class="back-link">← Back</button>
           <h1>{{ post.title }}</h1>
           <div class="article-info">
             <span>{{ post.category }}</span> • <span>{{ post.date }}</span>
@@ -17,12 +17,24 @@
         <div class="rich-content" v-html="renderedHtml"></div>
         
         <div class="share-footer">
-          <h4>Share this update:</h4>
-          <a :href="waLink" target="_blank" class="wa-share">Share via WhatsApp</a>
+          <h4>Share this Research Update</h4>
+          <div class="share-buttons">
+            <button @click="shareArticle" class="share-btn-main">
+              🔗 Share Article
+            </button>
+
+            <a :href="waLink" target="_blank" class="share-btn-wa">
+              WhatsApp
+            </a>
+          </div>
         </div>
       </article>
     </div>
   </main>
+
+  <div v-else class="loader">
+    <p>Loading report...</p>
+  </div>
 </template>
 
 <script setup>
@@ -30,7 +42,7 @@ import { ref, onMounted, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { createClient } from 'contentful';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import { BLOCKS, INLINES } from '@contentful/rich-text-types';
+import { BLOCKS } from '@contentful/rich-text-types';
 
 const route = useRoute();
 const post = ref(null);
@@ -40,14 +52,14 @@ const client = createClient({
   accessToken: import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN,
 });
 
-// Options for rendering Rich Text content correctly
+// Contentful Rich Text Rendering Options
 const options = {
   renderNode: {
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
       const { file, title } = node.data.target.fields;
       return `<div class="in-article-img">
                 <img src="${file.url}?w=1200" alt="${title}" />
-                ${title ? `<caption>${title}</caption>` : ''}
+                ${title ? `<p class="img-caption">${title}</p>` : ''}
               </div>`;
     },
     [BLOCKS.HEADING_2]: (node, next) => `<h2 class="section-h2">${next(node.content)}</h2>`,
@@ -58,8 +70,26 @@ const renderedHtml = computed(() => {
   return post.value?.content ? documentToHtmlString(post.value.content, options) : '';
 });
 
+// Universal Share API Logic
+const shareArticle = async () => {
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        title: post.value.title,
+        text: `Research Insight: ${post.value.title}`,
+        url: window.location.href,
+      });
+    } catch (err) {
+      console.log('Share cancelled');
+    }
+  } else {
+    window.open(waLink.value, '_blank');
+  }
+};
+
 const waLink = computed(() => {
-  return `https://wa.me/?text=Check out this KIK Farms update: ${post.value?.title} - ${window.location.href}`;
+  const text = encodeURIComponent(`KIK Farms Update: ${post.value?.title} - `);
+  return `https://api.whatsapp.com/send?text=${text}${window.location.href}`;
 });
 
 onMounted(async () => {
@@ -88,29 +118,72 @@ onMounted(async () => {
 
 <style scoped>
 .article-page { background: white; min-height: 100vh; }
-.limiter { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
+.limiter { max-width: 800px; margin: 0 auto; padding: 0 1.2rem; box-sizing: border-box; }
 
-.hero { height: 60vh; background-size: cover; background-position: center; position: relative; }
-.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.85)); display: flex; align-items: flex-end; padding-bottom: 4rem; }
-.hero-overlay h1 { color: white; font-size: clamp(2rem, 5vw, 3.5rem); margin: 1rem 0; line-height: 1.1; }
+/* SLIM HERO SETTINGS */
+.hero { 
+  height: 40vh; /* Reduced height */
+  min-height: 300px;
+  background-size: cover; 
+  background-position: center; 
+  position: relative; 
+}
+.hero-overlay { 
+  position: absolute; 
+  inset: 0; 
+  background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.7)); 
+  display: flex; 
+  align-items: flex-end; 
+  padding-bottom: 2rem; /* Tighter spacing */
+}
+.hero-overlay h1 { 
+  color: white; 
+  font-size: clamp(1.8rem, 4vw, 2.8rem); 
+  margin: 0.5rem 0; 
+  line-height: 1.2; 
+  font-weight: 800;
+}
 
-.back-link { background: none; border: 1px solid rgba(255,255,255,0.4); color: white; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; transition: 0.3s; }
+.back-link { 
+  background: rgba(255,255,255,0.15); 
+  border: 1px solid rgba(255,255,255,0.3); 
+  color: white; 
+  padding: 0.4rem 1rem; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  font-size: 0.8rem;
+  transition: 0.3s; 
+  margin-bottom: 1rem;
+}
 .back-link:hover { background: #4caf50; border-color: #4caf50; }
-.article-info { color: #4caf50; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; }
 
-.article-body { padding: 4rem 0; }
-.rich-content { font-size: 1.2rem; line-height: 1.8; color: #333; }
+.article-info { color: #4caf50; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+
+/* ARTICLE BODY */
+.article-body { padding: 3rem 0; }
+.rich-content { font-size: 1.15rem; line-height: 1.8; color: #334155; }
 .rich-content :deep(p) { margin-bottom: 1.5rem; }
-.rich-content :deep(.section-h2) { font-size: 2rem; color: #1b2e1c; margin: 3rem 0 1rem; }
-.rich-content :deep(.in-article-img) { margin: 3rem 0; text-align: center; }
-.rich-content :deep(img) { width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+.rich-content :deep(.section-h2) { font-size: 1.8rem; color: #0f172a; margin: 2.5rem 0 1rem; }
+.rich-content :deep(img) { width: 100%; border-radius: 12px; margin-top: 1rem; }
+.rich-content :deep(.img-caption) { color: #64748b; font-size: 0.85rem; margin-top: 0.5rem; text-align: center; font-style: italic; }
 
-.share-footer { margin-top: 5rem; padding-top: 2rem; border-top: 1px solid #eee; text-align: center; }
-.wa-share { display: inline-block; margin-top: 1rem; background: #25d366; color: white; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.3s; }
-.wa-share:hover { transform: scale(1.05); }
+/* SHARE FOOTER */
+.share-footer { 
+  margin-top: 4rem; 
+  padding: 2rem; 
+  background: #f8fafc; 
+  border-radius: 16px; 
+  text-align: center; 
+}
+.share-footer h4 { margin-bottom: 1.5rem; color: #1e293b; }
+.share-buttons { display: flex; gap: 10px; justify-content: center; }
+
+.share-btn-main { background: #1e293b; color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 50px; font-weight: 700; cursor: pointer; }
+.share-btn-wa { background: #25d366; color: white; padding: 0.8rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; }
 
 @media (max-width: 768px) {
-  .hero { height: 50vh; }
-  .rich-content { font-size: 1.1rem; }
+  .hero { height: 35vh; }
+  .article-body { padding: 2rem 0; }
+  .rich-content { font-size: 1.05rem; }
 }
 </style>
