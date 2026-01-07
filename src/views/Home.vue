@@ -1,5 +1,13 @@
 <template>
   <div class="home">
+    <Hero
+      title="Welcome to NeG AgriTechnologies"
+      subtitle="At NeG AgriTechnologies we work tirelessly to provide best agriculture services and provide cutting edge solutions that optimize production."
+      buttonText="Learn More"
+      buttonLink="/services"
+      backgroundImage="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1920"
+    />
+
     <section v-if="blogPosts && blogPosts.length > 0" class="blog-carousel-section">
       <div id="blogCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-pause="hover">
         
@@ -45,14 +53,6 @@
         </div>
       </div>
     </section>
-
-    <Hero
-      title="Welcome to NeG AgriTechnologies"
-      subtitle="At NeG AgriTechnologies we work tirelessly to provide best agriculture services and provide cutting edge solutions that optimize production."
-      buttonText="Learn More"
-      buttonLink="/services"
-      backgroundImage="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1920"
-    />
 
     <section class="about-section">
       <div class="container">
