@@ -8,7 +8,7 @@
           <header class="header-block">
             <span class="pre-title">Tanzania's Smart Farming Partner</span>
             <h1>Get In Touch</h1>
-            <p>Ready to automate your farm? Our technical team in Morogoro is standing by to help you scale.</p>
+            <p>Ready to automate your farm? Our technical team is standing by to help you scale.</p>
           </header>
 
           <div class="info-cards">
@@ -25,6 +25,7 @@
               <div class="info-text">
                 <h3>Direct Line</h3>
                 <p>+255 620 157 239</p>
+                <p>+255 758 907 311</p>
               </div>
             </div>
 
@@ -44,7 +45,7 @@
               <div class="input-row">
                 <div class="field">
                   <label>Name</label>
-                  <input type="text" v-model="form.name" placeholder="John Doe" required />
+                  <input type="text" v-model="form.name" placeholder="John Kassim" required />
                 </div>
                 <div class="field">
                   <label>Phone</label>
@@ -91,7 +92,7 @@
         <div class="success-pop" @click.stop>
           <div class="success-circle">✓</div>
           <h2>Asante Sana!</h2>
-          <p>We have received your message. A specialist will contact you soon.</p>
+          <p>We have received your message. Our team will contact you soon.</p>
           <button class="done-btn" @click="submitted = false">Return to Page</button>
         </div>
       </div>
