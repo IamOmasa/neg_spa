@@ -57,6 +57,12 @@ const team = [
     socials: { linkedin: "#" }
   },
    { 
+    name: "Donat Shukuru", 
+    role: "Manager Mechanization",
+    image: "/team/donat.jpg",
+    socials: { linkedin: "#" }
+  },
+   { 
     name: "Rose Ng'atigwa", 
     role: "Marketing and Communications Manager",
     image: "/team/rose-ngatingwa.jpg",

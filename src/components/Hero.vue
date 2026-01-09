@@ -26,6 +26,7 @@
     </div>
   </section>
 </template>
+  
 
 <script>
 export default {
@@ -58,13 +59,13 @@ export default {
 
 /* Mobile First */
 .hero-section {
-  min-height: 350px;
-  padding: 2rem 0;
+  min-height: 50px;
+  padding: 0.5rem 0;
 }
 
 .hero-title {
-  font-size: 1.75rem;
-  line-height: 1.2;
+  font-size: 1rem;
+  line-height: 1;
   animation: fadeInUp 0.8s ease-out;
 }
 
@@ -80,31 +81,31 @@ export default {
 
 /* Tablets */
 @media (min-width: 768px) {
-  .hero-section { min-height: 480px; padding: 3rem 0; }
-  .hero-title { font-size: 2.5rem; }
-  .hero-subtitle { font-size: 1.2rem; }
+  .hero-section { min-height: 100px; padding: 1rem 0; }
+  .hero-title { font-size: 2rem; }
+  .hero-subtitle { font-size: 1rem; }
   .hero-btn { padding: 1rem 3rem; font-size: 1.1rem; }
 }
 
 /* Laptops */
 @media (min-width: 992px) {
-  .hero-section { min-height: 550px; padding: 3.5rem 0; }
-  .hero-title { font-size: 3rem; }
-  .hero-subtitle { font-size: 1.3rem; }
+  .hero-section { min-height: 150px; padding: 1.5rem 0; }
+  .hero-title { font-size: 1.5rem; }
+  .hero-subtitle { font-size: 1rem; }
   .hero-btn { padding: 1.1rem 3.5rem; font-size: 1.15rem; }
 }
 
 /* Desktops */
 @media (min-width: 1200px) {
-  .hero-section { min-height: 600px; padding: 4rem 0; }
-  .hero-title { font-size: 3.5rem; }
-  .hero-subtitle { font-size: 1.4rem; }
+  .hero-section { min-height: 150px; padding: 2rem 0; }
+  .hero-title { font-size: 2.5rem; }
+  .hero-subtitle { font-size: 1.2rem; }
   .hero-btn { padding: 1.2rem 4rem; font-size: 1.2rem; }
 }
 
 /* Large Desktops */
 @media (min-width: 1400px) {
-  .hero-section { min-height: 650px; padding: 4.5rem 0; }
+  .hero-section { min-height: 200px; padding: 2.5rem 0; }
   .hero-title { font-size: 4rem; }
   .hero-subtitle { font-size: 1.5rem; }
 }

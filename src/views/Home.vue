@@ -32,7 +32,7 @@
             data-bs-interval="3000" 
           >
             <div 
-              class="blog-banner-card"
+              class="blog-banner-card secondary-bg d-flex"
               :style="{ backgroundImage: post.fields.thumbnail ? `url(${post.fields.thumbnail.fields.file.url}?w=1600&q=80)` : 'none' }"
             >
               <div class="carousel-overlay">
@@ -202,19 +202,19 @@ export default {
 
 /* Responsive Heights & Font Sizes */
 @media (max-width: 767px) {
-  .blog-banner-card { min-height: 180px; }
+  .blog-banner-card { min-height: 320px; }
   .blog-title { font-size: 1.1rem; }
 }
 @media (min-width: 768px) {
-  .blog-banner-card { min-height: 250px; }
+  .blog-banner-card { min-height: 380px; }
   .blog-title { font-size: 1.8rem; }
 }
 @media (min-width: 1200px) {
-  .blog-banner-card { min-height: 350px; }
+  .blog-banner-card { min-height: 420px; }
   .blog-title { font-size: 2.5rem; }
 }
 
-/* --- RESTORED ORIGINAL STYLES (AS PROVIDED) --- */
+/* ---  STYLES  --- */
 .about-section { padding: 2rem 0; background: #f8f9fa; }
 .services-section { padding: 2rem 0; background: white; }
 .cta-section { padding: 2rem 0; }
