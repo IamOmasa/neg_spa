@@ -2,7 +2,7 @@
   <main class="about-page">
     <section class="hero-section">
       <div class="content-limiter">
-        <span class="tag">Since 2019</span>
+        <span class="tag">Innovating since 2022</span>
         <h1>Revolutionizing Agriculture in East Africa</h1>
         <p class="lead-text">
           NEG-AGRITECHNOLOGIES is a dynamic technology company based in Morogoro, Tanzania, 
