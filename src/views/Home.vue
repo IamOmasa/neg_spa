@@ -145,9 +145,9 @@ export default {
         { id: 3, title: 'Vision', text: 'To be the Leading company in providing Smart agriculture services, solutions and technology in the World.', icon: 'EyeIcon' }
       ],
       services: [
-        { id: 1, title: 'Irrigation Systems', description: 'Modern irrigation solutions and farm structures for optimal water management.', image: 'https://images.unsplash.com/photo-1560493676-04071c5f467b?w=800' },
-        { id: 2, title: 'Farm Management', description: 'Professional farm management services to maximize your agricultural productivity.', image: 'https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=800' },
-        { id: 3, title: 'Extension Services', description: 'Expert guidance and support to help you implement best farming practices.', image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800' }
+        { id: 1, title: 'Irrigation Systems', description: 'Modern irrigation solutions and farm structures for optimal water management.', image: './public/swtm1.jpeg' },
+        { id: 2, title: 'Farm Management', description: 'Professional farm management services to maximize your agricultural productivity.', image: './public/gnh4.jpeg' },
+        { id: 3, title: 'Extension Services', description: 'Expert guidance and support to help you implement best farming practices.', image: './public/gnh3.jpeg' }
       ]
     }
   },
