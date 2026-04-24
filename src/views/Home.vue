@@ -5,7 +5,7 @@
       subtitle="At NeG AgriTechnologies we work tirelessly to provide best agriculture services and provide cutting edge solutions that optimize production."
       buttonText="Learn More"
       buttonLink="/services"
-      backgroundImage="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1920"
+      backgroundImage="./kik-farm-open-field.jpeg"
     />
 
     <section v-if="blogPosts && blogPosts.length > 0" class="blog-carousel-section">
