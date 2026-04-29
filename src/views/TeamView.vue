@@ -40,7 +40,7 @@ const team = [
   },
   { 
     name: "James Gates", 
-    role: "Busines Development Manager",
+    role: "Business Development Manager",
     image: "/team/jgates.jpg",
     socials: { linkedin: "#" }
   },
